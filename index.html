@@ -2382,46 +2382,50 @@
             return;
         }
 
-        /* Desktop: scrub por scroll */
-        vid.addEventListener('loadedmetadata', () => {
+        /* Desktop: scrub por scroll — aguarda buffer completo */
+        function initScrub() {
             vid.classList.add('ready');
             vid.pause();
 
-            let rafId = null;
+            let rafPending = false;
             let targetTime = 0;
-            let currentTime = 0;
 
-            function onScroll() {
+            function calc() {
                 const zoneTop    = zone.getBoundingClientRect().top + window.scrollY;
                 const scrollZone = zone.offsetHeight - window.innerHeight;
                 const scrolled   = Math.max(0, window.scrollY - zoneTop);
-                const progress   = Math.min(1, scrolled / scrollZone);
+                return Math.min(1, scrolled / scrollZone);
+            }
 
+            function onScroll() {
+                const progress = calc();
                 targetTime = progress * vid.duration;
-
                 if (scrubBar) scrubBar.style.width = (progress * 100) + '%';
 
-                if (!rafId) {
-                    rafId = requestAnimationFrame(function step() {
-                        /* Suaviza a interpolação do currentTime */
-                        const diff = targetTime - currentTime;
-                        if (Math.abs(diff) > 0.016) {
-                            currentTime += diff * 0.18;
-                        } else {
-                            currentTime = targetTime;
-                        }
-                        vid.currentTime = currentTime;
-                        rafId = null;
-                        if (Math.abs(targetTime - currentTime) > 0.016) {
-                            rafId = requestAnimationFrame(step);
-                        }
+                /* Um único seek por frame de tela — sem seek em cascata */
+                if (!rafPending) {
+                    rafPending = true;
+                    requestAnimationFrame(() => {
+                        vid.currentTime = targetTime;
+                        rafPending = false;
                     });
                 }
             }
 
             window.addEventListener('scroll', onScroll, { passive: true });
-            onScroll(); /* estado inicial */
-        });
+            onScroll();
+        }
+
+        /* canplaythrough = vídeo totalmente em buffer, seeks são instantâneos */
+        if (vid.readyState >= 4) {
+            initScrub();
+        } else {
+            vid.addEventListener('canplaythrough', initScrub, { once: true });
+            /* fallback: se demorar >3s para buffer, inicia assim mesmo */
+            vid.addEventListener('loadedmetadata', () => {
+                setTimeout(() => { if (!vid.classList.contains('ready')) initScrub(); }, 3000);
+            }, { once: true });
+        }
 
         /* Fallback: se o vídeo não carregar, mantém o fundo escuro */
         vid.addEventListener('error', () => vid.remove());
