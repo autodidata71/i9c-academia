@@ -2382,7 +2382,8 @@
             return;
         }
 
-        /* Desktop: scrub por scroll — aguarda buffer completo */
+        /* Desktop: baixa o vídeo completo como Blob antes de habilitar o scrub.
+           Isso garante que TODOS os seeks são instantâneos (dados 100% em memória). */
         function initScrub() {
             vid.classList.add('ready');
             vid.pause();
@@ -2399,10 +2400,9 @@
 
             function onScroll() {
                 const progress = calc();
-                targetTime = progress * vid.duration;
+                targetTime     = progress * vid.duration;
                 if (scrubBar) scrubBar.style.width = (progress * 100) + '%';
 
-                /* Um único seek por frame de tela — sem seek em cascata */
                 if (!rafPending) {
                     rafPending = true;
                     requestAnimationFrame(() => {
@@ -2416,18 +2416,24 @@
             onScroll();
         }
 
-        /* canplaythrough = vídeo totalmente em buffer, seeks são instantâneos */
-        if (vid.readyState >= 4) {
-            initScrub();
-        } else {
-            vid.addEventListener('canplaythrough', initScrub, { once: true });
-            /* fallback: se demorar >3s para buffer, inicia assim mesmo */
-            vid.addEventListener('loadedmetadata', () => {
-                setTimeout(() => { if (!vid.classList.contains('ready')) initScrub(); }, 3000);
-            }, { once: true });
-        }
+        /* Carrega vídeo como Blob → seeks sempre instantâneos */
+        fetch('video.mp4')
+            .then(r => r.blob())
+            .then(blob => {
+                const blobUrl = URL.createObjectURL(blob);
+                vid.src = blobUrl;
+                vid.load();
+                vid.addEventListener('canplaythrough', initScrub, { once: true });
+            })
+            .catch(() => {
+                /* Se fetch falhar (ex: CORS), cai no comportamento padrão */
+                if (vid.readyState >= 4) {
+                    initScrub();
+                } else {
+                    vid.addEventListener('canplaythrough', initScrub, { once: true });
+                }
+            });
 
-        /* Fallback: se o vídeo não carregar, mantém o fundo escuro */
         vid.addEventListener('error', () => vid.remove());
     })();
 </script>
