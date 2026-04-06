@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>i9.C Academia | Musculação e Fitness em Araraquara - SP</title>
+    <meta name="description" content="i9.C Academia em Araraquara, SP. Musculação, cardio e aulas coletivas com avaliação 4,7 ⭐ no Google. Aceitamos Wellhub (Gympass) e Totalpass. Seg–Sex 05h–23h.">
+    <meta name="keywords" content="academia em Araraquara, i9.C Academia, musculação Araraquara, gym Araraquara, Wellhub Araraquara, Gympass Araraquara, Totalpass Araraquara, fitness Araraquara, projeto verão Araraquara">
+    <meta name="author" content="i9.C Academia">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="i9.C Academia | Araraquara - SP">
+    <meta property="og:description" content="O seu #projetoverão começa aqui! Academia completa em Araraquara com musculação, cardio e aulas coletivas. Avaliação 4,7 ⭐ no Google.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ============================================================
+           RESET & CUSTOM PROPERTIES
+        ============================================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange:        #FF6600;
+            --orange-dark:   #CC4F00;
+            --orange-light:  #FF8533;
+            --orange-glow:   rgba(255, 102, 0, 0.35);
+            --bg-0:          #080808;
+            --bg-1:          #0f0f0f;
+            --bg-2:          #141414;
+            --bg-card:       #1a1a1a;
+            --bg-card-h:     #222222;
+            --border:        rgba(255,255,255,0.07);
+            --border-h:      rgba(255,102,0,0.3);
+            --text-1:        #ffffff;
+            --text-2:        #999999;
+            --text-3:        #666666;
+            --whatsapp:      #25D366;
+            --whatsapp-dark: #1aaa4e;
+            --header-h:      70px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-0);
+            color: var(--text-1);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           SCROLL ANIMATIONS
+        ============================================================ */
+        .anim {
+            opacity: 0;
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+        .anim.fade-up   { transform: translateY(40px); }
+        .anim.fade-in   { transform: none; }
+        .anim.slide-l   { transform: translateX(-50px); }
+        .anim.slide-r   { transform: translateX(50px); }
+        .anim.visible   { opacity: 1; transform: none; }
+
+        .d1 { transition-delay: 0.10s; }
+        .d2 { transition-delay: 0.20s; }
+        .d3 { transition-delay: 0.30s; }
+        .d4 { transition-delay: 0.40s; }
+        .d5 { transition-delay: 0.50s; }
+        .d6 { transition-delay: 0.60s; }
+
+        /* ============================================================
+           SHARED COMPONENTS
+        ============================================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section { padding: 5.5rem 0; }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.05;
+            color: var(--text-1);
+        }
+
+        .section-title span { color: var(--orange); }
+
+        .section-bar {
+            width: 48px;
+            height: 4px;
+            background: var(--orange);
+            border-radius: 2px;
+            margin: 1.25rem auto 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.9rem 1.75rem;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.28s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--orange-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px var(--orange-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--orange);
+            border: 2px solid var(--orange);
+        }
+        .btn-outline:hover {
+            background: var(--orange);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-wa {
+            background: var(--whatsapp);
+            color: #fff;
+        }
+        .btn-wa:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(37,211,102,0.4);
+        }
+
+        /* ============================================================
+           HEADER
+        ============================================================ */
+        #header {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 1000;
+            height: var(--header-h);
+            display: flex;
+            align-items: center;
+            transition: background 0.35s ease, box-shadow 0.35s ease, height 0.35s ease;
+        }
+
+        #header.scrolled {
+            background: rgba(8,8,8,0.97);
+            box-shadow: 0 1px 0 var(--border), 0 4px 30px rgba(0,0,0,0.6);
+            height: 62px;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 50%;
+            border: 3px solid var(--orange);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-mark::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(var(--orange) 0deg 180deg, #fff 180deg 360deg);
+            opacity: 0.12;
+        }
+        .logo-mark-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+        .logo-mark-i9c {
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--orange);
+            letter-spacing: -0.5px;
+        }
+        .logo-mark-sub {
+            font-size: 0.32rem;
+            font-weight: 900;
+            color: #222;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo-text-wrap {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-name {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .logo-name em {
+            color: var(--orange);
+            font-style: normal;
+        }
+
+        .logo-tag {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--text-2);
+            text-transform: uppercase;
+        }
+
+        /* Nav desktop */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 0.15rem;
+        }
+
+        .nav-desktop a {
+            padding: 0.45rem 0.75rem;
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: color 0.25s;
+        }
+        .nav-desktop a:hover,
+        .nav-desktop a.active { color: var(--orange); }
+
+        .nav-cta {
+            background: var(--orange);
+            color: #fff !important;
+            margin-left: 0.5rem;
+            padding: 0.5rem 1.1rem !important;
+            border-radius: 4px;
+            transition: background 0.25s, transform 0.25s !important;
+        }
+        .nav-cta:hover {
+            background: var(--orange-light) !important;
+            color: #fff !important;
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            height: 2px;
+            background: var(--text-1);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile nav overlay */
+        .nav-mobile {
+            position: fixed;
+            inset: 0;
+            background: rgba(8,8,8,0.98);
+            backdrop-filter: blur(16px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.75rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        .nav-mobile.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .nav-mobile a {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-1);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+        .nav-mobile a:hover { color: var(--orange); }
+        .nav-mobile .btn-wa-mob {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-0);
+        }
+
+        /* Ambient glow */
+        .hero-glow-a {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,102,0,0.14) 0%, transparent 70%);
+            right: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        .hero-glow-b {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,102,0,0.07) 0%, transparent 70%);
+            left: -150px;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        /* Grid pattern */
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,102,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,102,0,0.04) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+        }
+
+        .hero-body {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: calc(var(--header-h) + 3rem) 1.5rem 4rem;
+            width: 100%;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,102,0,0.12);
+            border: 1px solid rgba(255,102,0,0.25);
+            color: var(--orange);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-h1 {
+            font-size: clamp(2.8rem, 9vw, 6.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.95;
+            margin-bottom: 0.6rem;
+            max-width: 950px;
+        }
+
+        .hero-h1 .line-orange { color: var(--orange); display: block; }
+        .hero-h1 .line-white  { color: var(--text-1); display: block; }
+
+        .hero-hashtag {
+            font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--orange);
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-sub {
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--text-2);
+            font-weight: 500;
+            max-width: 560px;
+            margin-bottom: 2.25rem;
+            line-height: 1.75;
+            text-transform: none;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-stat-val {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+        }
+
+        .hero-stat-lbl {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-2);
+            margin-top: 0.2rem;
+        }
+
+        /* Scroll indicator */
+        .scroll-cue {
+            position: absolute;
+            bottom: 1.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-3);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            animation: scrollBounce 2.2s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        /* ============================================================
+           ORANGE BANNER
+        ============================================================ */
+        .banner-strip {
+            background: var(--orange);
+            padding: 1.1rem 0;
+            overflow: hidden;
+        }
+
+        .banner-track {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .banner-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0 2rem;
+            border-right: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .banner-item:last-child { border-right: none; }
+
+        /* ============================================================
+           SOBRE
+        ============================================================ */
+        #sobre { background: var(--bg-1); }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sobre-visual { position: relative; }
+
+        .sobre-img-box {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-img-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
+        }
+
+        .sobre-img-box i {
+            display: none;
+        }
+
+        .sobre-badge {
+            position: absolute;
+            bottom: -1.25rem;
+            right: -1.25rem;
+            background: var(--orange);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 24px var(--orange-glow);
+        }
+        .sobre-badge .big { font-size: 2.2rem; font-weight: 900; line-height: 1; display: block; }
+        .sobre-badge .sml { font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+
+        .sobre-text-block .section-eyebrow,
+        .sobre-text-block .section-title { text-align: left; }
+        .sobre-text-block .section-bar    { margin-left: 0; }
+
+        .sobre-p {
+            color: var(--text-2);
+            font-size: 0.97rem;
+            font-weight: 400;
+            line-height: 1.85;
+            margin: 1.25rem 0;
+            text-transform: none;
+        }
+
+        .sobre-checks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-2);
+        }
+        .check-item i { color: var(--orange); font-size: 0.85rem; }
+
+        /* ============================================================
+           SERVIÇOS
+        ============================================================ */
+        #servicos { background: var(--bg-0); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--orange);
+            transform: scaleX(0);
+            transition: transform 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-h);
+            background: var(--bg-card-h);
+        }
+
+        .service-card:hover::after { transform: scaleX(1); }
+
+        .service-ico {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: rgba(255,102,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.7rem;
+            color: var(--orange);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .service-card:hover .service-ico {
+            background: rgba(255,102,0,0.2);
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .service-name {
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-1);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-desc {
+            font-size: 0.83rem;
+            color: var(--text-2);
+            font-weight: 400;
+            line-height: 1.65;
+            text-transform: none;
+        }
+
+        /* ============================================================
+           PLANOS
+        ============================================================ */
+        #planos { background: var(--bg-0); }
+
+        .planos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .plano-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .plano-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-h);
+        }
+
+        .plano-card.featured {
+            background: linear-gradient(145deg, #1e0800 0%, #2d1200 60%, #1a0900 100%);
+            border-color: var(--orange);
+            border-width: 2px;
+        }
+
+        .plano-card.featured::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255,102,0,0.15), transparent 65%);
+            pointer-events: none;
+        }
+
+        .plano-badge {
+            position: absolute;
+            top: -1px;
+            right: 1.5rem;
+            background: var(--orange);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .plano-name {
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+
+        .plano-price {
+            line-height: 1;
+        }
+
+        .plano-price .cur {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-2);
+            vertical-align: super;
+        }
+
+        .plano-price .val {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-1);
+        }
+
+        .plano-price .cents {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--text-1);
+            vertical-align: super;
+        }
+
+        .plano-price .period {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-2);
+            display: block;
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .plano-desc {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            font-weight: 500;
+            text-transform: none;
+            line-height: 1.6;
+        }
+
+        .plano-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            flex: 1;
+        }
+
+        .plano-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-2);
+            text-transform: none;
+        }
+
+        .plano-features li i {
+            color: var(--orange);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .plano-cta {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .plano-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-3);
+            font-weight: 600;
+            text-transform: none;
+            margin-top: 2rem;
+        }
+        .plano-note a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .planos-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+        }
+
+        /* ============================================================
+           AVALIAÇÕES
+        ============================================================ */
+        #avaliacoes { background: var(--bg-1); }
+
+        .rating-overview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .rating-score { text-align: center; }
+
+        .score-number {
+            font-size: clamp(5rem, 12vw, 8rem);
+            font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+        }
+
+        .score-stars {
+            display: flex;
+            justify-content: center;
+            gap: 0.3rem;
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin: 0.4rem 0;
+        }
+
+        .score-meta {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-2);
+        }
+
+        .rating-bars { width: 280px; }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .bar-lbl {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-2);
+            min-width: 36px;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 7px;
+            background: var(--bg-2);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--orange);
+            border-radius: 50px;
+        }
+
+        .bar-pct {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-3);
+            min-width: 28px;
+            text-align: right;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .review-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-4px);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.2rem;
+            color: #FFD700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-quote {
+            font-size: 0.92rem;
+            color: var(--text-2);
+            font-weight: 400;
+            line-height: 1.75;
+            text-transform: none;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .review-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.3rem;
+            font-size: 2.5rem;
+            color: var(--orange);
+            font-style: normal;
+            line-height: 1;
+        }
+
+        .review-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.95rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .review-name {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .review-sub {
+            font-size: 0.72rem;
+            color: var(--text-2);
+            font-weight: 600;
+            text-transform: none;
+        }
+
+        .google-tag {
+            margin-left: auto;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-3);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+
+        /* ============================================================
+           HORÁRIOS & CONVÊNIOS
+        ============================================================ */
+        #horarios { background: var(--bg-1); }
+
+        .hor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+
+        .block-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.05rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-1);
+            margin-bottom: 1.5rem;
+        }
+        .block-title i { color: var(--orange); font-size: 1.1rem; }
+
+        .hor-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hor-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+        .hor-table tr:last-child { border-bottom: none; }
+
+        .hor-table td {
+            padding: 0.9rem 0.5rem;
+            font-size: 0.88rem;
+        }
+
+        .hor-table td:first-child {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-1);
+        }
+
+        .hor-table td:last-child {
+            color: var(--orange);
+            font-weight: 800;
+            text-align: right;
+        }
+
+        .hor-table tr.closed td:last-child { color: var(--text-3); }
+
+        .convenio-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .convenio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .convenio-card:hover {
+            border-color: var(--border-h);
+            background: var(--bg-card-h);
+        }
+
+        .conv-logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-align: center;
+            line-height: 1.3;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .conv-wellhub   { background: #00A878; }
+        .conv-totalpass { background: #0057B7; }
+
+        .conv-info h4 {
+            font-size: 0.95rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--text-1);
+            margin-bottom: 0.2rem;
+        }
+        .conv-info p {
+            font-size: 0.8rem;
+            color: var(--text-2);
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .conv-note {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255,102,0,0.07);
+            border: 1px solid rgba(255,102,0,0.18);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--text-2);
+            font-weight: 500;
+            text-transform: none;
+        }
+        .conv-note i { color: var(--orange); margin-right: 0.4rem; }
+
+        /* ============================================================
+           LOCALIZAÇÃO
+        ============================================================ */
+        #localizacao { background: var(--bg-0); }
+
+        .loc-grid {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .loc-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .loc-row {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .loc-ico {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background: rgba(255,102,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange);
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .loc-row h4 {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-1);
+            margin-bottom: 0.3rem;
+        }
+        .loc-row p {
+            font-size: 0.88rem;
+            color: var(--text-2);
+            font-weight: 500;
+            text-transform: none;
+            line-height: 1.6;
+        }
+
+        .loc-info-list .btn {
+            align-self: flex-start;
+            margin-top: 0.5rem;
+        }
+
+        .map-frame {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            height: 390px;
+        }
+
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* ============================================================
+           CONTATO
+        ============================================================ */
+        #contato { background: var(--bg-1); }
+
+        .contact-lead {
+            color: var(--text-2);
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: none;
+            max-width: 480px;
+            margin: 0.75rem auto 0;
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.85rem;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-h);
+        }
+
+        .c-ico {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: transform 0.3s;
+        }
+        .contact-card:hover .c-ico { transform: scale(1.12); }
+
+        .c-ico-wa   { background: var(--whatsapp); color: #fff; }
+        .c-ico-ig   { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #fff; }
+        .c-ico-fb   { background: #1877F2; color: #fff; }
+        .c-ico-tel  { background: var(--orange); color: #fff; }
+
+        .c-lbl {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-2);
+        }
+        .c-val {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-1);
+            text-transform: none;
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer {
+            background: #050505;
+            border-top: 1px solid var(--border);
+            padding: 3.5rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-brand-desc {
+            color: var(--text-2);
+            font-size: 0.87rem;
+            font-weight: 400;
+            text-transform: none;
+            max-width: 310px;
+            line-height: 1.75;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .fsoc {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .fsoc:hover { transform: translateY(-3px); }
+
+        .footer-col h5 {
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-1);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .footer-links a {
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: 0.87rem;
+            font-weight: 600;
+            transition: color 0.25s;
+        }
+        .footer-links a:hover { color: var(--orange); }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.78rem;
+            color: var(--text-3);
+            font-weight: 500;
+            text-transform: none;
+        }
+        .footer-bottom span { color: var(--orange); }
+
+        /* ============================================================
+           WHATSAPP FLOAT BUTTON
+        ============================================================ */
+        .wa-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .wa-float-tooltip {
+            background: var(--bg-card);
+            color: var(--text-1);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.35rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+
+        .wa-float:hover .wa-float-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wa-float-btn {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--whatsapp);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.65rem;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+            animation: waPulse 2.5s ease-in-out infinite;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .wa-float-btn:hover {
+            transform: scale(1.12);
+            box-shadow: 0 6px 30px rgba(37,211,102,0.65);
+        }
+
+        @keyframes waPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+            60%       { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+        }
+
+        /* ============================================================
+           RESPONSIVE — TABLET (≤1024px)
+        ============================================================ */
+        @media (max-width: 1024px) {
+            .sobre-grid    { grid-template-columns: 1fr; gap: 2.5rem; }
+            .sobre-visual  { max-width: 480px; margin: 0 auto; }
+
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .reviews-grid  { grid-template-columns: 1fr; }
+
+            .loc-grid      { grid-template-columns: 1fr; }
+            .map-frame     { height: 320px; }
+
+            .contact-grid  { grid-template-columns: repeat(2, 1fr); }
+
+            .footer-grid   { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ============================================================
+           RESPONSIVE — MOBILE (≤768px)
+        ============================================================ */
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .hamburger   { display: flex; }
+
+            section { padding: 3.5rem 0; }
+
+
+            .hor-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-item {
+                padding: 0 1rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE — SMALL MOBILE (≤480px)
+        ============================================================ */
+        @media (max-width: 480px) {
+            .sobre-checks  { grid-template-columns: 1fr; }
+            .hero-stats    { gap: 1.5rem; }
+            .contact-grid  { grid-template-columns: repeat(2, 1fr); }
+            .wa-float      { bottom: 1.25rem; right: 1.25rem; }
+            .wa-float-btn  { width: 52px; height: 52px; font-size: 1.4rem; }
+            .reviews-grid  { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================================================================
+     HEADER
+================================================================ -->
+<header id="header">
+    <div class="header-inner">
+
+        <a href="#hero" class="logo">
+            <div class="logo-mark">
+                <div class="logo-mark-inner">
+                    <span class="logo-mark-i9c">i9C</span>
+                    <span class="logo-mark-sub">Academia</span>
+                </div>
+            </div>
+            <div class="logo-text-wrap">
+                <span class="logo-name">i9<em>.C</em></span>
+                <span class="logo-tag">Academia</span>
+            </div>
+        </a>
+
+        <nav class="nav-desktop">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#planos">Planos</a>
+            <a href="#avaliacoes">Avaliações</a>
+            <a href="#horarios">Horários</a>
+            <a href="#localizacao">Localização</a>
+            <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20i9.C%20Academia!"
+               target="_blank" rel="noopener" class="nav-cta">Fale Conosco</a>
+        </nav>
+
+        <button class="hamburger" id="js-hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+    </div>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<nav class="nav-mobile" id="js-mobile-nav" aria-hidden="true">
+    <a href="#sobre"       class="js-nav-link">Sobre</a>
+    <a href="#servicos"    class="js-nav-link">Serviços</a>
+    <a href="#planos"      class="js-nav-link">Planos</a>
+    <a href="#avaliacoes"  class="js-nav-link">Avaliações</a>
+    <a href="#horarios"    class="js-nav-link">Horários</a>
+    <a href="#localizacao" class="js-nav-link">Localização</a>
+    <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20i9.C%20Academia!"
+       target="_blank" rel="noopener" class="btn btn-wa btn-wa-mob js-nav-link">
+        <i class="fab fa-whatsapp"></i> Fale Conosco
+    </a>
+</nav>
+
+
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section id="hero">
+    <div class="hero-glow-a"></div>
+    <div class="hero-glow-b"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-body">
+
+        <div class="hero-pill anim fade-in">
+            <i class="fas fa-star"></i>
+            <span>4,7 no Google &nbsp;·&nbsp; Araraquara, SP</span>
+        </div>
+
+        <h1 class="hero-h1 anim fade-up d1">
+            <span class="line-white">Seu Corpo,</span>
+            <span class="line-orange">Sua Melhor</span>
+            <span class="line-orange">Versão.</span>
+        </h1>
+
+        <div class="hero-hashtag anim fade-up d2">#ProjetoVerão</div>
+
+        <p class="hero-sub anim fade-up d3">
+            A academia com estrutura completa, equipamentos modernos e profissionais dedicados a transformar o seu corpo em Araraquara, SP.
+        </p>
+
+        <div class="hero-ctas anim fade-up d4">
+            <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20começar%20meu%20%23ProjetoVerão%20na%20i9.C%20Academia!"
+               target="_blank" rel="noopener" class="btn btn-wa">
+                <i class="fab fa-whatsapp"></i> Começar Agora
+            </a>
+            <a href="#sobre" class="btn btn-outline">
+                <i class="fas fa-play"></i> Conheça a Academia
+            </a>
+        </div>
+
+        <div class="hero-stats anim fade-up d5">
+            <div>
+                <div class="hero-stat-val">4,7 ★</div>
+                <div class="hero-stat-lbl">Avaliação Google</div>
+            </div>
+            <div>
+                <div class="hero-stat-val">2,7k</div>
+                <div class="hero-stat-lbl">Seguidores</div>
+            </div>
+            <div>
+                <div class="hero-stat-val">18h</div>
+                <div class="hero-stat-lbl">Seg–Sex Aberto</div>
+            </div>
+            <div>
+                <div class="hero-stat-val">R$18</div>
+                <div class="hero-stat-lbl">Diária a partir de</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+        <i class="fas fa-chevron-down"></i>
+        <span>scroll</span>
+    </div>
+</section>
+
+
+<!-- Orange Banner Strip -->
+<div class="banner-strip">
+    <div class="container">
+        <div class="banner-track">
+            <div class="banner-item"><i class="fas fa-dumbbell"></i> Musculação</div>
+            <div class="banner-item"><i class="fas fa-running"></i> Cardio</div>
+            <div class="banner-item"><i class="fas fa-users"></i> Aulas Coletivas</div>
+            <div class="banner-item"><i class="fas fa-ban"></i> Sem Taxas de Matrícula</div>
+            <div class="banner-item"><i class="fas fa-ban"></i> Sem Fidelidade</div>
+            <div class="banner-item"><i class="fas fa-id-card"></i> Wellhub · Totalpass</div>
+            <div class="banner-item"><i class="fas fa-star"></i> 4,7 no Google</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ================================================================
+     SOBRE
+================================================================ -->
+<section id="sobre">
+    <div class="container">
+        <div class="sobre-grid">
+
+            <!-- Visual -->
+            <div class="sobre-visual anim slide-l">
+                <div class="sobre-img-box">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="sobre-badge">
+                    <span class="big">4,7</span>
+                    <span class="sml">★ Google</span>
+                </div>
+            </div>
+
+            <!-- Text -->
+            <div class="sobre-text-block anim slide-r">
+                <span class="section-eyebrow">Sobre Nós</span>
+                <h2 class="section-title">A academia que <span>transforma vidas</span></h2>
+                <div class="section-bar" style="margin-left:0;"></div>
+
+                <p class="sobre-p">
+                    A <strong>i9.C Academia</strong> é referência em Araraquara quando o assunto é musculação e condicionamento físico. Com estrutura moderna, equipamentos de última geração e profissionais altamente qualificados, oferecemos o ambiente ideal para você alcançar seus objetivos.
+                </p>
+
+                <p class="sobre-p">
+                    Seja para iniciar sua jornada fitness, preparar o corpo para o <strong>#ProjetoVerão</strong> ou buscar alta performance, nosso time está pronto para te ajudar. Aceitamos <strong>Wellhub (Gympass)</strong> e <strong>Totalpass</strong>.
+                </p>
+
+                <div class="sobre-checks">
+                    <div class="check-item"><i class="fas fa-check-circle"></i> Acompanhamento especializado</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> Sem taxas de matrícula</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> Sem plano fidelidade</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> Diárias a partir de R$18</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> Wellhub · Totalpass</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> Novos equipamentos</div>
+                </div>
+
+                <a href="https://wa.me/5516997069703?text=Olá!%20Gostaria%20de%20conhecer%20a%20i9.C%20Academia!"
+                   target="_blank" rel="noopener" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Quero Conhecer
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     SERVIÇOS / MODALIDADES
+================================================================ -->
+<section id="servicos">
+    <div class="container">
+
+        <div class="section-header anim fade-up">
+            <span class="section-eyebrow">O que oferecemos</span>
+            <h2 class="section-title">Nossas <span>Modalidades</span></h2>
+            <div class="section-bar"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card anim fade-up d1">
+                <div class="service-ico"><i class="fas fa-dumbbell"></i></div>
+                <h3 class="service-name">Musculação</h3>
+                <p class="service-desc">Treinos de força com equipamentos modernos e acompanhamento profissional para resultados reais e seguros.</p>
+            </div>
+            <div class="service-card anim fade-up d2">
+                <div class="service-ico"><i class="fas fa-running"></i></div>
+                <h3 class="service-name">Cardio</h3>
+                <p class="service-desc">Área completa com esteiras, bicicletas ergométricas e elípticos para queima de gordura e condicionamento.</p>
+            </div>
+            <div class="service-card anim fade-up d3">
+                <div class="service-ico"><i class="fas fa-users"></i></div>
+                <h3 class="service-name">Aulas Coletivas</h3>
+                <p class="service-desc">Aulas em grupo com energia contagiante, ritmo acelerado e muito resultado para todos os níveis.</p>
+            </div>
+            <div class="service-card anim fade-up d4">
+                <div class="service-ico"><i class="fas fa-fire-alt"></i></div>
+                <h3 class="service-name">Funcional</h3>
+                <p class="service-desc">Treinos de alta intensidade que trabalham força, equilíbrio e resistência de forma integrada.</p>
+            </div>
+            <div class="service-card anim fade-up d5">
+                <div class="service-ico"><i class="fas fa-heartbeat"></i></div>
+                <h3 class="service-name">Avaliação Física</h3>
+                <p class="service-desc">Avaliação corporal completa para traçar o plano de treino ideal de acordo com seu perfil e metas.</p>
+            </div>
+            <div class="service-card anim fade-up d6">
+                <div class="service-ico"><i class="fas fa-user-tie"></i></div>
+                <h3 class="service-name">Personal Trainer</h3>
+                <p class="service-desc">Treinamento 100% personalizado com foco total em você, para acelerar seus resultados com segurança.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================================================================
+     PLANOS
+================================================================ -->
+<section id="planos">
+    <div class="container">
+
+        <div class="section-header anim fade-up">
+            <span class="section-eyebrow">Conheça nossos planos</span>
+            <h2 class="section-title">Invista na sua <span>Saúde</span></h2>
+            <div class="section-bar"></div>
+        </div>
+
+        <div class="planos-grid">
+
+            <!-- Diária -->
+            <div class="plano-card anim fade-up d1">
+                <div class="plano-name">Diária</div>
+                <div class="plano-price">
+                    <span class="cur">R$</span><span class="val">18</span><span class="cents">,00</span>
+                    <span class="period">por dia</span>
+                </div>
+                <p class="plano-desc">Treine quando quiser, sem compromisso. Ideal para quem quer experimentar a i9.C.</p>
+                <ul class="plano-features">
+                    <li><i class="fas fa-check-circle"></i> Acesso por 1 dia completo</li>
+                    <li><i class="fas fa-check-circle"></i> Todos os equipamentos</li>
+                    <li><i class="fas fa-check-circle"></i> Sem cadastro prévio</li>
+                    <li><i class="fas fa-check-circle"></i> Sem fidelidade</li>
+                    <li><i class="fas fa-times-circle" style="color:var(--text-3)"></i> Sem acompanhamento fixo</li>
+                </ul>
+                <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20fazer%20uma%20diária%20na%20i9.C%20Academia!"
+                   target="_blank" rel="noopener" class="btn btn-outline plano-cta">
+                    <i class="fab fa-whatsapp"></i> Quero uma Diária
+                </a>
+            </div>
+
+            <!-- Plano i9C — Featured -->
+            <div class="plano-card featured anim fade-up d2">
+                <div class="plano-badge">Mais Popular</div>
+                <div class="plano-name">Plano i9C</div>
+                <div class="plano-price">
+                    <span class="cur">R$</span><span class="val">95</span><span class="cents">,00</span>
+                    <span class="period">fixo todo mês</span>
+                </div>
+                <p class="plano-desc">O plano completo para quem quer resultados de verdade, sem surpresas na cobrança.</p>
+                <ul class="plano-features">
+                    <li><i class="fas fa-check-circle"></i> Acesso ilimitado ao mês</li>
+                    <li><i class="fas fa-check-circle"></i> Todos os equipamentos</li>
+                    <li><i class="fas fa-check-circle"></i> Acompanhamento de instrutores</li>
+                    <li><i class="fas fa-check-circle"></i> <strong style="color:#fff">Sem taxa de matrícula</strong></li>
+                    <li><i class="fas fa-check-circle"></i> <strong style="color:#fff">Sem taxa de cancelamento</strong></li>
+                    <li><i class="fas fa-check-circle"></i> Sem plano fidelidade</li>
+                </ul>
+                <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20assinar%20o%20Plano%20i9C%20por%20R%2495%2C00!"
+                   target="_blank" rel="noopener" class="btn btn-primary plano-cta">
+                    <i class="fab fa-whatsapp"></i> Quero Este Plano
+                </a>
+            </div>
+
+            <!-- Convênios -->
+            <div class="plano-card anim fade-up d3">
+                <div class="plano-name">Convênio</div>
+                <div class="plano-price">
+                    <span class="val" style="font-size:2.2rem;">Wellhub</span>
+                    <span class="period">ou Totalpass</span>
+                </div>
+                <p class="plano-desc">Use seu benefício corporativo para treinar na i9.C sem custo adicional.</p>
+                <ul class="plano-features">
+                    <li><i class="fas fa-check-circle"></i> Aceita Wellhub (Gympass)</li>
+                    <li><i class="fas fa-check-circle"></i> Aceita Totalpass</li>
+                    <li><i class="fas fa-check-circle"></i> Acesso via app do convênio</li>
+                    <li><i class="fas fa-check-circle"></i> Todos os equipamentos</li>
+                    <li><i class="fas fa-check-circle"></i> Acompanhamento de instrutores</li>
+                </ul>
+                <a href="https://wa.me/5516997069703?text=Olá!%20Tenho%20Wellhub%2FTotalpass%20e%20quero%20treinar%20na%20i9.C!"
+                   target="_blank" rel="noopener" class="btn btn-outline plano-cta">
+                    <i class="fab fa-whatsapp"></i> Verificar Convênio
+                </a>
+            </div>
+
+        </div>
+
+        <p class="plano-note anim fade-up">
+            Dúvidas sobre planos? <a href="https://wa.me/5516997069703?text=Olá!%20Tenho%20dúvidas%20sobre%20os%20planos%20da%20i9.C%20Academia!" target="_blank">Fale com a gente pelo WhatsApp</a> e tire todas as suas perguntas antes de visitar.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ================================================================
+     AVALIAÇÕES
+================================================================ -->
+<section id="avaliacoes">
+    <div class="container">
+
+        <div class="section-header anim fade-up">
+            <span class="section-eyebrow">Quem já treina aqui</span>
+            <h2 class="section-title">O que nossos <span>alunos dizem</span></h2>
+            <div class="section-bar"></div>
+        </div>
+
+        <!-- Rating overview -->
+        <div class="rating-overview anim fade-up">
+            <div class="rating-score">
+                <div class="score-number">4,7</div>
+                <div class="score-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="score-meta">50 avaliações no Google</div>
+            </div>
+
+            <div class="rating-bars">
+                <div class="bar-row">
+                    <span class="bar-lbl">5 ★</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+                    <span class="bar-pct">75%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-lbl">4 ★</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:15%"></div></div>
+                    <span class="bar-pct">15%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-lbl">3 ★</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:6%"></div></div>
+                    <span class="bar-pct">6%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-lbl">2 ★</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>
+                    <span class="bar-pct">3%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-lbl">1 ★</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+                    <span class="bar-pct">1%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Depoimentos -->
+        <div class="reviews-grid">
+            <div class="review-card anim fade-up d1">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    Amo treinar lá... os treinadores são atenciosos, nos auxiliam em como usar o aparelho e corrigem a nossa postura, o que para mim faz toda diferença pois comecei a frequentar academia agora. Super índico pois fui em outras academias onde não tive auxílio, fui apenas número.
+                </p>
+                <div class="review-footer">
+                    <div class="review-avatar" style="background:#FF6600;">L</div>
+                    <div>
+                        <div class="review-name">Luciana Pastre</div>
+                        <div class="review-sub">Aluna verificada</div>
+                    </div>
+                    <span class="google-tag"><i class="fab fa-google"></i> Google</span>
+                </div>
+            </div>
+
+            <div class="review-card anim fade-up d2">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    Excelente academia, sempre limpa e climatizada, com professores atenciosos e dedicados. Sem plano fidelidade, com horário de funcionamento das 5 horas às 23 horas! Super recomendo ♥
+                </p>
+                <div class="review-footer">
+                    <div class="review-avatar" style="background:#9b59b6;">B</div>
+                    <div>
+                        <div class="review-name">Bruna Oliveira</div>
+                        <div class="review-sub">Aluna verificada</div>
+                    </div>
+                    <span class="google-tag"><i class="fab fa-google"></i> Google</span>
+                </div>
+            </div>
+
+            <div class="review-card anim fade-up d3">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    Ótima academia no centro de Araraquara! Horário de funcionamento perfeito, abre às 5h da manhã. Equipamentos novos, espaço bem aproveitado e professores sempre prontos para ajudar e corrigir a execução. Muito satisfeito!
+                </p>
+                <div class="review-footer">
+                    <div class="review-avatar" style="background:#27ae60;">M</div>
+                    <div>
+                        <div class="review-name">Marcos Lima</div>
+                        <div class="review-sub">Aluno verificado</div>
+                    </div>
+                    <span class="google-tag"><i class="fab fa-google"></i> Google</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<!-- ================================================================
+     HORÁRIOS & CONVÊNIOS
+================================================================ -->
+<section id="horarios">
+    <div class="container">
+
+        <div class="section-header anim fade-up">
+            <span class="section-eyebrow">Planeje sua visita</span>
+            <h2 class="section-title">Horários &amp; <span>Convênios</span></h2>
+            <div class="section-bar"></div>
+        </div>
+
+        <div class="hor-grid">
+
+            <!-- Horários -->
+            <div class="anim slide-l">
+                <div class="block-title"><i class="fas fa-clock"></i> Horários de Funcionamento</div>
+                <table class="hor-table">
+                    <tr><td>Segunda-feira</td><td>05h00 — 23h00</td></tr>
+                    <tr><td>Terça-feira</td>  <td>05h00 — 23h00</td></tr>
+                    <tr><td>Quarta-feira</td> <td>05h00 — 23h00</td></tr>
+                    <tr><td>Quinta-feira</td> <td>05h00 — 23h00</td></tr>
+                    <tr><td>Sexta-feira</td>  <td>05h00 — 23h00</td></tr>
+                    <tr><td>Sábado</td>       <td>08h00 — 15h00</td></tr>
+                    <tr class="closed"><td>Domingo</td><td>Fechado</td></tr>
+                </table>
+            </div>
+
+            <!-- Convênios -->
+            <div class="anim slide-r">
+                <div class="block-title"><i class="fas fa-id-card"></i> Convênios Aceitos</div>
+                <div class="convenio-list">
+
+                    <div class="convenio-card">
+                        <div class="conv-logo conv-wellhub">WELL<br>HUB</div>
+                        <div class="conv-info">
+                            <h4>Wellhub (Gympass)</h4>
+                            <p>Acesse a i9.C Academia usando seu benefício Wellhub. Consulte os planos disponíveis no aplicativo.</p>
+                        </div>
+                    </div>
+
+                    <div class="convenio-card">
+                        <div class="conv-logo conv-totalpass">TOTAL<br>PASS</div>
+                        <div class="conv-info">
+                            <h4>Totalpass</h4>
+                            <p>Também aceitamos Totalpass. Treine sem complicação utilizando seu benefício corporativo.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="conv-note">
+                    <i class="fas fa-info-circle"></i>
+                    Dúvidas sobre convênios? Entre em contato pelo WhatsApp e tire todas as suas dúvidas antes de visitar.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     LOCALIZAÇÃO
+================================================================ -->
+<section id="localizacao">
+    <div class="container">
+
+        <div class="section-header anim fade-up">
+            <span class="section-eyebrow">Como nos encontrar</span>
+            <h2 class="section-title">Nossa <span>Localização</span></h2>
+            <div class="section-bar"></div>
+        </div>
+
+        <div class="loc-grid">
+
+            <!-- Info -->
+            <div class="loc-info-list anim fade-up">
+                <div class="loc-row">
+                    <div class="loc-ico"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h4>Endereço</h4>
+                        <p>R. Expedicionários do Brasil, 1498<br>Centro, Araraquara – SP<br>CEP: 14801-360</p>
+                    </div>
+                </div>
+                <div class="loc-row">
+                    <div class="loc-ico"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <h4>Telefone / WhatsApp</h4>
+                        <p>(16) 99706-9703</p>
+                    </div>
+                </div>
+                <div class="loc-row">
+                    <div class="loc-ico"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h4>Horário de Funcionamento</h4>
+                        <p>Seg–Sex: 05h às 23h<br>Sábado: 08h às 15h<br>Domingo: Fechado</p>
+                    </div>
+                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=R.+Expedicionários+do+Brasil,+1498,+Centro,+Araraquara,+SP,+14801-360"
+                   target="_blank" rel="noopener" class="btn btn-primary">
+                    <i class="fas fa-route"></i> Como Chegar
+                </a>
+            </div>
+
+            <!-- Map -->
+            <div class="map-frame anim fade-up d2">
+                <iframe
+                    src="https://maps.google.com/maps?q=R.+Expedicionários+do+Brasil,+1498,+Centro,+Araraquara,+SP,+14801-360&output=embed&z=16&hl=pt-BR"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa i9.C Academia – Araraquara SP">
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CONTATO
+================================================================ -->
+<section id="contato">
+    <div class="container">
+
+        <div class="section-header anim fade-up">
+            <span class="section-eyebrow">Fale com a gente</span>
+            <h2 class="section-title">Entre em <span>Contato</span></h2>
+            <div class="section-bar"></div>
+            <p class="contact-lead">Estamos prontos para tirar suas dúvidas e ajudar você a dar o primeiro passo da sua transformação!</p>
+        </div>
+
+        <div class="contact-grid">
+            <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20i9.C%20Academia!"
+               target="_blank" rel="noopener" class="contact-card anim fade-up d1">
+                <div class="c-ico c-ico-wa"><i class="fab fa-whatsapp"></i></div>
+                <span class="c-lbl">WhatsApp</span>
+                <span class="c-val">(16) 99706-9703</span>
+            </a>
+
+            <a href="https://instagram.com/i9cacademia" target="_blank" rel="noopener"
+               class="contact-card anim fade-up d2">
+                <div class="c-ico c-ico-ig"><i class="fab fa-instagram"></i></div>
+                <span class="c-lbl">Instagram</span>
+                <span class="c-val">@i9cacademia</span>
+            </a>
+
+            <a href="https://facebook.com/i9cacademia" target="_blank" rel="noopener"
+               class="contact-card anim fade-up d3">
+                <div class="c-ico c-ico-fb"><i class="fab fa-facebook-f"></i></div>
+                <span class="c-lbl">Facebook</span>
+                <span class="c-val">@i9cacademia</span>
+            </a>
+
+            <a href="tel:+5516997069703" class="contact-card anim fade-up d4">
+                <div class="c-ico c-ico-tel"><i class="fas fa-phone-alt"></i></div>
+                <span class="c-lbl">Telefone</span>
+                <span class="c-val">(16) 99706-9703</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <a href="#hero" class="logo">
+                    <div class="logo-mark">
+                        <div class="logo-mark-inner">
+                            <span class="logo-mark-i9c">i9C</span>
+                            <span class="logo-mark-sub">Academia</span>
+                        </div>
+                    </div>
+                    <div class="logo-text-wrap">
+                        <span class="logo-name">i9<em>.C</em></span>
+                        <span class="logo-tag">Academia</span>
+                    </div>
+                </a>
+                <p class="footer-brand-desc">
+                    Sua academia de referência em Araraquara, SP. Estrutura completa, profissionais qualificados e o ambiente ideal para superar seus limites.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/i9cacademia" target="_blank" rel="noopener"
+                       class="fsoc c-ico-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/i9cacademia" target="_blank" rel="noopener"
+                       class="fsoc c-ico-fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/5516997069703" target="_blank" rel="noopener"
+                       class="fsoc c-ico-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h5>Links Rápidos</h5>
+                <ul class="footer-links">
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Modalidades</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                    <li><a href="#horarios">Horários</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contato</h5>
+                <ul class="footer-links">
+                    <li><a href="tel:+5516997069703">(16) 99706-9703</a></li>
+                    <li><a href="https://wa.me/5516997069703" target="_blank" rel="noopener">WhatsApp</a></li>
+                    <li><a href="https://instagram.com/i9cacademia" target="_blank" rel="noopener">@i9cacademia</a></li>
+                    <li><a href="#localizacao">R. Expedicionários do Brasil, 1498</a></li>
+                    <li><a href="#localizacao">Centro – Araraquara, SP</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <span>i9.C Academia</span>. Todos os direitos reservados.</p>
+            <p>Feito com <span>♥</span> em Araraquara, SP</p>
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- ================================================================
+     WHATSAPP FLOAT BUTTON
+================================================================ -->
+<div class="wa-float">
+    <div class="wa-float-tooltip">Fale conosco agora!</div>
+    <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20i9.C%20Academia!"
+       target="_blank" rel="noopener"
+       class="wa-float-btn"
+       aria-label="Fale conosco pelo WhatsApp — (16) 99706-9703">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+
+<!-- ================================================================
+     JAVASCRIPT
+================================================================ -->
+<script>
+    /* --------------------------------------------------
+       Header: shrink on scroll
+    -------------------------------------------------- */
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        header.classList.toggle('scrolled', y > 40);
+        lastScroll = y;
+    }, { passive: true });
+
+    /* --------------------------------------------------
+       Hamburger / mobile nav
+    -------------------------------------------------- */
+    const hamburger  = document.getElementById('js-hamburger');
+    const mobileNav  = document.getElementById('js-mobile-nav');
+    const mobileLinks = document.querySelectorAll('.js-nav-link');
+
+    function closeMobileNav() {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        mobileNav.setAttribute('aria-hidden', String(!isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => link.addEventListener('click', closeMobileNav));
+
+    /* Close on Escape key */
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMobileNav();
+    });
+
+    /* --------------------------------------------------
+       Smooth scroll for anchor links
+    -------------------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const href = a.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+            const offset = header.offsetHeight + 8;
+            window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+        });
+    });
+
+    /* --------------------------------------------------
+       Intersection Observer — scroll animations
+    -------------------------------------------------- */
+    const animEls = document.querySelectorAll('.anim');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    animEls.forEach(el => observer.observe(el));
+
+    /* --------------------------------------------------
+       Active nav highlight on scroll
+    -------------------------------------------------- */
+    const sections  = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-desktop a:not(.nav-cta)');
+
+    const navObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navAnchors.forEach(a => a.classList.remove('active'));
+                const active = document.querySelector(`.nav-desktop a[href="#${entry.target.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }, { threshold: 0.45 });
+
+    sections.forEach(s => navObs.observe(s));
+</script>
+
+</body>
+</html>
