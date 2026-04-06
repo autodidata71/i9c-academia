@@ -128,6 +128,163 @@
             margin-bottom: 3.5rem;
         }
 
+        /* ============================================================
+           ANIMATED SHINY BUTTON
+           Adaptado de Eldora UI para paleta laranja do site
+        ============================================================ */
+        @property --gradient-angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+        @property --gradient-angle-offset {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+        @property --gradient-percent {
+            syntax: "<percentage>";
+            initial-value: 5%;
+            inherits: false;
+        }
+        @property --gradient-shine {
+            syntax: "<color>";
+            initial-value: #FF8533;
+            inherits: false;
+        }
+
+        @keyframes gradient-angle {
+            to { --gradient-angle: 360deg; }
+        }
+        @keyframes shimmer-spin {
+            to { rotate: 360deg; }
+        }
+        @keyframes breathe {
+            from, to { scale: 1; }
+            50%       { scale: 1.2; }
+        }
+
+        .btn-shiny {
+            --shiny-bg:        #0f0f0f;
+            --shiny-hi:        #FF6600;
+            --shiny-hi-subtle: #FF8533;
+            --shiny-duration:  3s;
+            --shiny-transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+
+            position: relative;
+            padding: 0.9rem 1.75rem;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            background:
+                linear-gradient(var(--shiny-bg), var(--shiny-bg)) padding-box,
+                conic-gradient(
+                    from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+                    transparent,
+                    var(--shiny-hi) var(--gradient-percent),
+                    var(--gradient-shine) calc(var(--gradient-percent) * 2),
+                    var(--shiny-hi) calc(var(--gradient-percent) * 3),
+                    transparent calc(var(--gradient-percent) * 4)
+                ) border-box;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine, box-shadow;
+            transition-duration: var(--shiny-transition);
+            animation:
+                gradient-angle linear infinite var(--shiny-duration),
+                gradient-angle calc(var(--shiny-duration) / 0.4) reverse paused;
+            animation-composition: add;
+            animation-play-state: paused;
+            overflow: hidden;
+        }
+
+        .btn-shiny::before,
+        .btn-shiny::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Dot texture layer */
+        .btn-shiny::before {
+            background:
+                radial-gradient(circle at 2px 2px, rgba(255,102,0,0.8) 0.5px, transparent 0)
+                padding-box;
+            background-size: 4px 4px;
+            background-repeat: space;
+            mask-image: conic-gradient(
+                from calc(var(--gradient-angle) + 45deg),
+                black,
+                transparent 10% 90%,
+                black
+            );
+            opacity: 0.35;
+            animation:
+                gradient-angle linear infinite var(--shiny-duration),
+                gradient-angle calc(var(--shiny-duration) / 0.4) reverse paused;
+            animation-composition: add;
+            animation-play-state: paused;
+        }
+
+        /* Diagonal shimmer sweep */
+        .btn-shiny::after {
+            background: linear-gradient(-50deg, transparent, rgba(255,102,0,0.5), transparent);
+            mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+            opacity: 0.6;
+            animation:
+                shimmer-spin linear infinite calc(var(--shiny-duration) * 1.5);
+            animation-play-state: paused;
+        }
+
+        .btn-shiny span {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        /* Inner glow on hover */
+        .btn-shiny span::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 -1ex 2rem 4px rgba(255,102,0,0.4);
+            opacity: 0;
+            transition: opacity var(--shiny-transition);
+            animation: calc(var(--shiny-duration) * 1.5) breathe linear infinite;
+            animation-play-state: paused;
+        }
+
+        /* Hover: activate all animations */
+        .btn-shiny:is(:hover, :focus-visible),
+        .btn-shiny:is(:hover, :focus-visible)::before,
+        .btn-shiny:is(:hover, :focus-visible)::after {
+            animation-play-state: running;
+        }
+        .btn-shiny:is(:hover, :focus-visible) span::before {
+            opacity: 1;
+            animation-play-state: running;
+        }
+        .btn-shiny:is(:hover, :focus-visible) {
+            --gradient-percent: 20%;
+            --gradient-angle-offset: 95deg;
+            --gradient-shine: var(--shiny-hi-subtle);
+            box-shadow: 0 0 24px rgba(255,102,0,0.35);
+        }
+
         /* Buttons */
         .btn {
             display: inline-flex;
@@ -1602,8 +1759,8 @@
                target="_blank" rel="noopener" class="btn btn-wa">
                 <i class="fab fa-whatsapp"></i> Começar Agora
             </a>
-            <a href="#sobre" class="btn btn-outline">
-                <i class="fas fa-play"></i> Conheça a Academia
+            <a href="#sobre" class="btn-shiny">
+                <span><i class="fas fa-play"></i> Conheça a Academia</span>
             </a>
         </div>
 
