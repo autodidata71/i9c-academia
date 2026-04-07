@@ -16,6 +16,56 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
 
+    <!-- Schema.org LocalBusiness — SEO Local -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HealthClub",
+        "name": "i9.C Academia",
+        "description": "Academia de musculação, cardio e aulas coletivas no Centro de Araraquara, SP. Sem taxa de matrícula, sem fidelidade, plano fixo a partir de R$95/mês.",
+        "url": "https://i9cacademia.com.br",
+        "telephone": "+55-16-99706-9703",
+        "priceRange": "R$18–R$95",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "50",
+            "bestRating": "5"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "R. Expedicionários do Brasil, 1498",
+            "addressLocality": "Araraquara",
+            "addressRegion": "SP",
+            "postalCode": "14801-360",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -21.7946,
+            "longitude": -48.1766
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "05:00",
+                "closes": "23:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "15:00"
+            }
+        ],
+        "sameAs": [
+            "https://instagram.com/i9cacademia",
+            "https://facebook.com/i9cacademia"
+        ]
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -642,6 +692,22 @@
             margin-bottom: 1.5rem;
         }
 
+        .hero-offer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(37,211,102,0.12);
+            border: 1px solid rgba(37,211,102,0.35);
+            color: #25D366;
+            padding: 0.45rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
         .hero-sub {
             font-size: clamp(0.95rem, 2vw, 1.15rem);
             color: var(--text-2);
@@ -892,6 +958,105 @@
             font-weight: 400;
             line-height: 1.65;
             text-transform: none;
+        }
+
+        /* ============================================================
+           POR QUE A i9.C?
+        ============================================================ */
+        #diferenciais { background: var(--bg-0); }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .diferencial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .diferencial-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-5px);
+        }
+
+        .dif-ico {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(255,102,0,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--orange);
+            margin: 0 auto 1.25rem;
+        }
+
+        .dif-title {
+            font-size: 0.95rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-1);
+            margin-bottom: 0.6rem;
+        }
+
+        .dif-desc {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            font-weight: 400;
+            text-transform: none;
+            line-height: 1.7;
+        }
+
+        .diferenciais-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .diferenciais-cta p {
+            font-size: 1rem;
+            color: var(--text-2);
+            font-weight: 500;
+            text-transform: none;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 900px) {
+            .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 540px) {
+            .diferenciais-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================================
+           URGÊNCIA / STRIP
+        ============================================================ */
+        .urgency-strip {
+            background: linear-gradient(135deg, var(--orange-dark), var(--orange));
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .urgency-strip p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .urgency-strip p span {
+            background: rgba(0,0,0,0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin: 0 0.3rem;
         }
 
         /* ============================================================
@@ -1574,6 +1739,48 @@
         .footer-bottom span { color: var(--orange); }
 
         /* ============================================================
+           MOBILE STICKY CTA BAR
+        ============================================================ */
+        .sticky-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 997;
+            background: rgba(8,8,8,0.97);
+            border-top: 1px solid var(--border);
+            padding: 0.85rem 1rem;
+            backdrop-filter: blur(12px);
+        }
+
+        .sticky-cta-bar a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            width: 100%;
+            background: var(--whatsapp);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.85rem;
+            border-radius: 8px;
+            transition: background 0.25s;
+        }
+
+        .sticky-cta-bar a:hover { background: var(--whatsapp-dark); }
+
+        @media (max-width: 768px) {
+            .sticky-cta-bar { display: block; }
+            .wa-float { bottom: 5.5rem; }
+        }
+
+        /* ============================================================
            WHATSAPP FLOAT BUTTON
         ============================================================ */
         .wa-float {
@@ -1756,6 +1963,10 @@
 
     <div class="hero-body">
 
+        <div class="hero-pill anim fade-up d1">
+            <i class="fas fa-map-marker-alt"></i> Academia no Centro de Araraquara, SP
+        </div>
+
 <h1 class="hero-h1">
             <span class="line-white">
                 <span class="wpu" style="--i:0">Seu</span>
@@ -1770,19 +1981,21 @@
             </span>
         </h1>
 
-        <div class="hero-hashtag anim fade-up d2">#ProjetoVerão</div>
+        <div class="hero-offer anim fade-up d2">
+            <i class="fas fa-gift"></i> 1ª Avaliação Física <strong>Gratuita</strong>
+        </div>
 
         <p class="hero-sub anim fade-up d3">
-            A academia com estrutura completa, equipamentos modernos e profissionais dedicados a transformar o seu corpo em Araraquara, SP.
+            A academia de referência no centro de Araraquara, SP. Sem taxa de matrícula, sem fidelidade e com atenção individualizada — aqui você não é só um número.
         </p>
 
         <div class="hero-ctas anim fade-up d4">
-            <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20começar%20meu%20%23ProjetoVerão%20na%20i9.C%20Academia!"
+            <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20agendar%20minha%20avaliação%20física%20gratuita%20na%20i9.C%20Academia!"
                target="_blank" rel="noopener" class="btn btn-wa">
-                <i class="fab fa-whatsapp"></i> Começar Agora
+                <i class="fab fa-whatsapp"></i> Agendar Avaliação Gratuita
             </a>
-            <a href="#sobre" class="btn-shiny">
-                <span><i class="fas fa-play"></i> Conheça a Academia</span>
+            <a href="#planos" class="btn-shiny">
+                <span><i class="fas fa-tags"></i> Ver Planos e Preços</span>
             </a>
         </div>
 
@@ -1792,12 +2005,16 @@
                 <div class="hero-stat-lbl">Avaliação Google</div>
             </div>
             <div>
-                <div class="hero-stat-val">2,7k</div>
-                <div class="hero-stat-lbl">Seguidores</div>
+                <div class="hero-stat-val">R$95</div>
+                <div class="hero-stat-lbl">Plano mensal fixo</div>
             </div>
             <div>
-                <div class="hero-stat-val">R$18</div>
-                <div class="hero-stat-lbl">Diária a partir de</div>
+                <div class="hero-stat-val">R$0</div>
+                <div class="hero-stat-lbl">Taxa de matrícula</div>
+            </div>
+            <div>
+                <div class="hero-stat-val">05h–23h</div>
+                <div class="hero-stat-lbl">Seg a Sex</div>
             </div>
         </div>
 
@@ -1814,13 +2031,15 @@
 <div class="banner-strip">
     <div class="container">
         <div class="banner-track">
+            <div class="banner-item"><i class="fas fa-map-marker-alt"></i> Academia em Araraquara</div>
             <div class="banner-item"><i class="fas fa-dumbbell"></i> Musculação</div>
             <div class="banner-item"><i class="fas fa-running"></i> Cardio</div>
             <div class="banner-item"><i class="fas fa-users"></i> Aulas Coletivas</div>
-            <div class="banner-item"><i class="fas fa-ban"></i> Sem Taxas de Matrícula</div>
+            <div class="banner-item"><i class="fas fa-ban"></i> Sem Taxa de Matrícula</div>
             <div class="banner-item"><i class="fas fa-ban"></i> Sem Fidelidade</div>
             <div class="banner-item"><i class="fas fa-id-card"></i> Wellhub · Totalpass</div>
             <div class="banner-item"><i class="fas fa-star"></i> 4,7 no Google</div>
+            <div class="banner-item"><i class="fas fa-gift"></i> Avaliação Gratuita</div>
         </div>
     </div>
 </div>
@@ -1847,25 +2066,25 @@
                 <div class="section-bar" style="margin-left:0;"></div>
 
                 <p class="sobre-p">
-                    A <strong>i9.C Academia</strong> é referência em Araraquara quando o assunto é musculação e condicionamento físico. Com estrutura moderna, equipamentos de última geração e profissionais altamente qualificados, oferecemos o ambiente ideal para você alcançar seus objetivos.
+                    A <strong>i9.C Academia</strong> fica no Centro de Araraquara e é conhecida por tratar cada aluno de forma individual — aqui você tem nome, não número. Nossos instrutores acompanham de perto cada treino, corrigem a execução e ajustam o programa conforme você evolui.
                 </p>
 
                 <p class="sobre-p">
-                    Seja para iniciar sua jornada fitness, preparar o corpo para o <strong>#ProjetoVerão</strong> ou buscar alta performance, nosso time está pronto para te ajudar. Aceitamos <strong>Wellhub (Gympass)</strong> e <strong>Totalpass</strong>.
+                    Sem taxa de matrícula, sem fidelidade e com plano fixo a partir de <strong>R$95/mês</strong>. Você pode começar hoje mesmo com a <strong>1ª avaliação física gratuita</strong>. Aceitamos <strong>Wellhub (Gympass)</strong> e <strong>Totalpass</strong>.
                 </p>
 
                 <div class="sobre-checks">
-                    <div class="check-item"><i class="fas fa-check-circle"></i> Acompanhamento especializado</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> 1ª avaliação física gratuita</div>
                     <div class="check-item"><i class="fas fa-check-circle"></i> Sem taxas de matrícula</div>
                     <div class="check-item"><i class="fas fa-check-circle"></i> Sem plano fidelidade</div>
-                    <div class="check-item"><i class="fas fa-check-circle"></i> Diárias a partir de R$18</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> Acompanhamento individualizado</div>
                     <div class="check-item"><i class="fas fa-check-circle"></i> Wellhub · Totalpass</div>
-                    <div class="check-item"><i class="fas fa-check-circle"></i> Novos equipamentos</div>
+                    <div class="check-item"><i class="fas fa-check-circle"></i> No Centro de Araraquara</div>
                 </div>
 
-                <a href="https://wa.me/5516997069703?text=Olá!%20Gostaria%20de%20conhecer%20a%20i9.C%20Academia!"
+                <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20agendar%20minha%20avaliação%20física%20gratuita%20na%20i9.C%20Academia!"
                    target="_blank" rel="noopener" class="btn-shiny">
-                    <span><i class="fab fa-whatsapp"></i> Quero Conhecer</span>
+                    <span><i class="fab fa-whatsapp"></i> Agendar Avaliação Gratuita</span>
                 </a>
             </div>
 
@@ -1924,14 +2143,81 @@
 
 
 <!-- ================================================================
+     POR QUE A i9.C?
+================================================================ -->
+<section id="diferenciais">
+    <div class="container">
+
+        <div class="section-header anim fade-up">
+            <span class="section-eyebrow">Por que escolher a i9.C</span>
+            <h2 class="section-title">O que nos torna <span>diferentes</span></h2>
+            <div class="section-bar"></div>
+        </div>
+
+        <div class="diferenciais-grid">
+
+            <div class="diferencial-card anim fade-up d1">
+                <div class="dif-ico"><i class="fas fa-user-check"></i></div>
+                <div class="dif-title">Você não é um número</div>
+                <p class="dif-desc">Nossos instrutores te conhecem pelo nome, acompanham sua evolução e corrigem a execução em cada treino — atenção real, não protocolo.</p>
+            </div>
+
+            <div class="diferencial-card anim fade-up d2">
+                <div class="dif-ico"><i class="fas fa-ban"></i></div>
+                <div class="dif-title">Zero burocracia</div>
+                <p class="dif-desc">Sem taxa de matrícula, sem contrato de fidelidade e sem taxa de cancelamento. Plano mensal fixo de <strong style="color:var(--orange)">R$95</strong> — só isso.</p>
+            </div>
+
+            <div class="diferencial-card anim fade-up d3">
+                <div class="dif-ico"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="dif-title">No centro de Araraquara</div>
+                <p class="dif-desc">Localizada na R. Expedicionários do Brasil, no coração de Araraquara, SP. Fácil acesso de qualquer bairro da cidade.</p>
+            </div>
+
+            <div class="diferencial-card anim fade-up d4">
+                <div class="dif-ico"><i class="fas fa-clock"></i></div>
+                <div class="dif-title">Horário ampliado</div>
+                <p class="dif-desc">Aberta das 5h às 23h de segunda a sexta. Treine antes do trabalho, na hora do almoço ou depois do expediente — sem desculpas.</p>
+            </div>
+
+        </div>
+
+        <div class="diferenciais-cta anim fade-up">
+            <p>Pronto para fazer parte? Agende sua primeira avaliação física gratuita agora.</p>
+            <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20agendar%20minha%20avaliação%20física%20gratuita%20na%20i9.C%20Academia!"
+               target="_blank" rel="noopener" class="btn btn-wa">
+                <i class="fab fa-whatsapp"></i> Agendar Avaliação Gratuita
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Urgência Strip -->
+<div class="urgency-strip">
+    <div class="container">
+        <p>
+            <i class="fas fa-bolt"></i>
+            Comece hoje —
+            <span>sem matrícula</span>
+            <span>sem fidelidade</span>
+            <span>sem complicação</span>
+            — academia no centro de Araraquara, SP
+        </p>
+    </div>
+</div>
+
+
+<!-- ================================================================
      PLANOS
 ================================================================ -->
 <section id="planos">
     <div class="container">
 
         <div class="section-header anim fade-up">
-            <span class="section-eyebrow">Conheça nossos planos</span>
-            <h2 class="section-title">Invista na sua <span>Saúde</span></h2>
+            <span class="section-eyebrow">Sem matrícula · Sem fidelidade · Comece hoje</span>
+            <h2 class="section-title">Escolha o plano <span>ideal para você</span></h2>
             <div class="section-bar"></div>
         </div>
 
@@ -2005,7 +2291,7 @@
         </div>
 
         <p class="plano-note anim fade-up">
-            Dúvidas sobre planos? <a href="https://wa.me/5516997069703?text=Olá!%20Tenho%20dúvidas%20sobre%20os%20planos%20da%20i9.C%20Academia!" target="_blank">Fale com a gente pelo WhatsApp</a> e tire todas as suas perguntas antes de visitar.
+            Dúvidas sobre planos? <a href="https://wa.me/5516997069703?text=Olá!%20Tenho%20dúvidas%20sobre%20os%20planos%20da%20i9.C%20Academia!" target="_blank">Fale com a gente pelo WhatsApp</a> — respondemos na hora e você já pode começar hoje mesmo na academia em Araraquara mais próxima de você.
         </p>
 
     </div>
@@ -2361,6 +2647,17 @@
 
     </div>
 </footer>
+
+
+<!-- ================================================================
+     MOBILE STICKY CTA BAR
+================================================================ -->
+<div class="sticky-cta-bar">
+    <a href="https://wa.me/5516997069703?text=Olá!%20Quero%20agendar%20minha%20avaliação%20física%20gratuita%20na%20i9.C%20Academia!"
+       target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> Agendar Avaliação Gratuita — Grátis
+    </a>
+</div>
 
 
 <!-- ================================================================
